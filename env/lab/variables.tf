@@ -2,14 +2,14 @@ variable "location" {
   description = "Azure Region"
   type        = string
 
-  default = "Brazil South"
+  default = "East US"
 }
 
 variable "vm_size" {
   description = "VM Size"
   type        = string
 
-  default = "Standard_DS1_v2"
+  default = "Standard_D2as_v7"
 }
 
 variable "admin_username" {
