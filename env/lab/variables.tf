@@ -9,7 +9,7 @@ variable "vm_size" {
   description = "VM Size"
   type        = string
 
-  default = "Standard_D2as_v4"
+  default = "Standard_D2s_v4"
 }
 
 variable "admin_username" {
