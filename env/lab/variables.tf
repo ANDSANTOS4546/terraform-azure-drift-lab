@@ -2,7 +2,7 @@ variable "location" {
   description = "Azure Region"
   type        = string
 
-  default = "East US"
+  default = "Brazil South"
 }
 
 variable "vm_size" {
