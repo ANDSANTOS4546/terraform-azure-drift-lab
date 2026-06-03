@@ -19,6 +19,13 @@ resource "azurerm_public_ip" "this" {
   allocation_method   = "Static"
 }
 
+resource "azurerm_public_ip" "this_2" {
+  name                = var.public_ip_name_2
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  allocation_method   = "Static"
+}
+
 resource "azurerm_network_interface" "this" {
   name                = var.nic_name
   location            = var.location
@@ -32,7 +39,7 @@ resource "azurerm_network_interface" "this" {
   }
 }
 
-resource "azurerm_network_interface" "this" {
+resource "azurerm_network_interface" "this_2" {
   name                = var.nic_name_2
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -41,6 +48,6 @@ resource "azurerm_network_interface" "this" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.this.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.this.id
+    public_ip_address_id          = azurerm_public_ip.this_2.id
   }
 }

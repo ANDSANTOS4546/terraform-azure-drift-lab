@@ -34,7 +34,7 @@ resource "azurerm_linux_virtual_machine" "this" {
   tags = var.tags
 }
 
-resource "azurerm_linux_virtual_machine" "this" {
+resource "azurerm_linux_virtual_machine" "this_2" {
 
   name                = var.vm_name_2
   resource_group_name = var.resource_group_name
