@@ -8,7 +8,7 @@ resource "azurerm_automation_schedule" "this" {
 
   interval = 1
 
-  timezone = "E. South America Standard Time"
+  timezone = "UTC"
 
   start_time = var.start_time
 

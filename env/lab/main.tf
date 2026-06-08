@@ -83,4 +83,8 @@ module "rotation_schedule" {
   runbook_name = "Rotate-VMs"
 
   start_time = "2026-07-27T02:00:00Z"
+
+  depends_on = [
+    module.rotation_runbook
+  ]
 }

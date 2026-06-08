@@ -7,9 +7,9 @@ desligado se o nó ativo falhar ao iniciar.
 #>
 
 # 1. Definição do Ambiente
-$vm1 = "saz-ot-ad-02"
-$vm2 = "saz-ot-ad-03"
-$rg = "ambev-brewtech-sazotad-brewtech-rg-brewtech-prd-brs"
+$vm1 = "vm-drift-lab"
+$vm2 = "vm-drift-lab-2"
+$rg = "rg-terraform-drift-lab"
 
 Write-Output "🤖 [INÍCIO] Iniciando rotina automatizada de rotação dos Domain Controllers..."
 
