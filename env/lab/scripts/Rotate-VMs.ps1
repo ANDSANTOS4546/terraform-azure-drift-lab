@@ -81,7 +81,7 @@ try {
       $isVmRunning = $true
       Write-Output "✅ [CERTEZA CONFIRMADA] A VM $vmToStart atingiu o estado real de '$realTimeStatus' com sucesso (Tentativa $attempt)."
     } else {
-      Write-Output "🔄 [AGUARDANDO] Tentativa $attempt/$maxAttempts: VM ainda está em transição ('$realTimeStatus'). Dormindo 30s..."
+      Write-Output "🔄 [AGUARDANDO] Tentativa ${attempt}/${maxAttempts}: VM ainda está em transição ('$realTimeStatus'). Dormindo 30s..."
       Start-Sleep -Seconds 30
       $attempt++
     }
