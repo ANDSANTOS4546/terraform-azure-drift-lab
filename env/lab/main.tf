@@ -40,3 +40,47 @@ module "virtual_machine" {
     environment = "lab"
   }
 }
+
+module "automation_account" {
+  source = "../../modules/automation_account"
+
+  name                = "aa-drift-lab"
+  location            = var.location
+  resource_group_name = module.resource_group.name
+}
+
+module "automation_rbac" {
+
+  source = "../../modules/role_assignment"
+
+  scope = module.resource_group.id
+  role_definition_name = "Virtual Machine Contributor"
+  principal_id = module.automation_account.principal_id
+}
+
+module "rotation_runbook" {
+
+  source = "../../modules/automation_runbook"
+
+  name                    = "Rotate-VMs"
+  location                = var.location
+  resource_group_name     = module.resource_group.name
+
+  automation_account_name = module.automation_account.name
+
+  script_path = "${path.root}/scripts/Rotate-VMs.ps1"
+}
+
+module "rotation_schedule" {
+  source = "../../modules/automation_schedule"
+
+  name = "weekly-rotation"
+
+  resource_group_name = module.resource_group.name
+
+  automation_account_name = module.automation_account.name
+
+  runbook_name = "Rotate-VMs"
+
+  start_time = "2026-07-27T02:00:00Z"
+}
