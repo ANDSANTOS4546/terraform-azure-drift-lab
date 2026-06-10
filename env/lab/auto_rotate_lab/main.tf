@@ -1,12 +1,12 @@
 module "resource_group" {
-  source = "../../../modules/resource_group"
+  source = "../../modules/resource_group"
 
   name     = "rg-auto-rotate-lab"
   location = var.location
 }
 
 module "network" {
-  source = "../../../modules/network"
+  source = "../../modules/network"
 
   resource_group_name = module.resource_group.name
   location            = module.resource_group.location
@@ -22,7 +22,7 @@ module "network" {
 }
 
 module "virtual_machine" {
-  source = "../../../modules/virtual_machine"
+  source = "../../modules/virtual_machine"
   
   vm_name             = "vm-auto-rotate-lab-1"
   vm_name_2           = "vm-auto-rotate-lab-2"
@@ -42,7 +42,7 @@ module "virtual_machine" {
 }
 
 module "automation_account" {
-  source = "../../../modules/automation_account"
+  source = "../../modules/automation_account"
 
   name                = "aa-auto-rotate-lab"
   location            = var.location
@@ -51,7 +51,7 @@ module "automation_account" {
 
 module "automation_rbac" {
 
-  source = "../../../modules/role_assignment"
+  source = "../../modules/role_assignment"
 
   scope = module.resource_group.id
   role_definition_name = "Virtual Machine Contributor"
@@ -60,7 +60,7 @@ module "automation_rbac" {
 
 module "rotation_runbook" {
 
-  source = "../../../modules/automation_runbook"
+  source = "../../modules/automation_runbook"
 
   name                    = "Rotate-VMs"
   location                = var.location
@@ -72,7 +72,7 @@ module "rotation_runbook" {
 }
 
 module "rotation_schedule" {
-  source = "../../../modules/automation_schedule"
+  source = "../../modules/automation_schedule"
 
   name = "weekly-rotation"
 
