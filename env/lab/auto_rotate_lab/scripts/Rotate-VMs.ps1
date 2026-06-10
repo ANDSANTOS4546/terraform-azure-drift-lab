@@ -7,9 +7,9 @@ desligado se o nó ativo falhar ao iniciar.
 #>
 
 # 1. Definição do Ambiente
-$vm1 = "vm-drift-lab"
-$vm2 = "vm-drift-lab-2"
-$rg = "rg-terraform-drift-lab"
+$vm1 = "vm-auto-rotate-lab-1"
+$vm2 = "vm-auto-rotate-lab-2"
+$rg = "rg-auto-rotate-lab"
 
 Write-Output "🤖 [INÍCIO] Iniciando rotina automatizada de rotação dos Domain Controllers..."
 

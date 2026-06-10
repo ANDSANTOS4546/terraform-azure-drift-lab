@@ -1,7 +1,7 @@
 module "resource_group" {
   source = "../../../modules/resource_group"
 
-  name     = "rg-terraform-drift-lab"
+  name     = "rg-auto-rotate-lab"
   location = var.location
 }
 
@@ -11,12 +11,12 @@ module "network" {
   resource_group_name = module.resource_group.name
   location            = module.resource_group.location
 
-  vnet_name      = "vnet-drift-lab"
-  subnet_name    = "subnet-drift-lab"
-  public_ip_name = "pip-drift-lab"
-  public_ip_name_2 = "pip-drift-lab-2"
-  nic_name       = "nic-drift-lab"
-  nic_name_2     = "nic-drift-lab-2"
+  vnet_name      = "vnet-auto-rotate-lab"
+  subnet_name    = "subnet-auto-rotate-lab"
+  public_ip_name = "pip-auto-rotate-lab"
+  public_ip_name_2 = "pip-auto-rotate-lab-2"
+  nic_name       = "nic-auto-rotate-lab"
+  nic_name_2     = "nic-auto-rotate-lab-2"
   address_space   = ["10.0.0.0/16"]
   subnet_prefixes = ["10.0.1.0/24"]
 }
@@ -24,8 +24,8 @@ module "network" {
 module "virtual_machine" {
   source = "../../../modules/virtual_machine"
   
-  vm_name             = "vm-drift-lab"
-  vm_name_2           = "vm-drift-lab-2"
+  vm_name             = "vm-auto-rotate-lab-1"
+  vm_name_2           = "vm-auto-rotate-lab-2"
   resource_group_name = module.resource_group.name
   location            = module.resource_group.location
 
@@ -44,7 +44,7 @@ module "virtual_machine" {
 module "automation_account" {
   source = "../../../modules/automation_account"
 
-  name                = "aa-drift-lab"
+  name                = "aa-auto-rotate-lab"
   location            = var.location
   resource_group_name = module.resource_group.name
 }
