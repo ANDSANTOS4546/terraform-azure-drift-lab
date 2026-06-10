@@ -1,12 +1,12 @@
 module "resource_group" {
-  source = "../../modules/resource_group"
+  source = "./modules/resource_group"
 
   name     = "rg-terraform-drift-lab"
   location = var.location
 }
 
 module "network" {
-  source = "../modules/network"
+  source = "./modules/network"
 
   resource_group_name = module.resource_group.name
   location            = module.resource_group.location
@@ -20,7 +20,7 @@ module "network" {
 }
 
 module "virtual_machine" {
-  source = "../../modules/virtual_machine"
+  source = "./modules/virtual_machine"
   
   vm_name             = "vm-drift-lab"
   resource_group_name = module.resource_group.name
